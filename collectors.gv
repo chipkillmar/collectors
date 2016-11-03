@@ -1,0 +1,12 @@
+digraph {
+	label="HotSpot JVM Collector Options";
+	labelloc=top;
+	rankdir=LR;
+	"-XX:+UseParallelOldGC" -> "PS Scavenge, PS MarkSweep"
+	"-XX:+UseParallelGC" -> "PS Scavenge, PS MarkSweep"
+	"-XX:+UseG1GC" -> "G1 Young Generation, G1 Old Generation"
+	"-XX:+UseConcMarkSweepGC -XX:-UseParNewGC" -> "Copy, ConcurrentMarkSweep"
+	"-XX:+UseConcMarkSweepGC" -> "ParNew, ConcurrentMarkSweep"
+	"-XX:+UseParNewGC" -> "ParNew, MarkSweepCompact"
+	"-XX:+UseSerialGC" -> "Copy, MarkSweepCompact"
+}
